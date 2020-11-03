@@ -6,6 +6,8 @@ import {React,useEffect} from 'react';
 import axios from 'axios';
 import Aux from './HOC/Auxiliary/Auxiliary';
 import {Route,Switch} from 'react-router-dom';
+import Navitem from './Components/Navigation/NavItems/Navitem/Navitem';
+import Movies from './Components/Movies/Movies';
 
 function App() {
 useEffect(() => {
@@ -20,12 +22,14 @@ useEffect(() => {
       console.log(err);
     });
 }, []);
-
+const Home=(props)=>(<div><p>{props.name}</p></div>);
   return (
     <div className="App">
-
       <Aux>
         <Navbar />
+				<Movies caption='Action' />
+				<Movies caption='Comedy' />
+				<Movies caption='Crime' />
       </Aux>
     </div>
   );

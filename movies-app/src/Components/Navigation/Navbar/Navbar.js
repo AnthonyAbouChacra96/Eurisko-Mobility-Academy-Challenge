@@ -1,5 +1,5 @@
 import { React } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 //import classes from "./Navbar.module.css";
 import Logo from '../../Logo/Logo'
 import Navitems from '../NavItems/NavItems'
@@ -8,9 +8,9 @@ const Navbar = (props) => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <Logo className="img-fluid " />
-        <Link className="navbar-brand" to="/" exact>
+        <NavLink className="navbar-brand" to="/" exact>
           Movies
-        </Link>
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
