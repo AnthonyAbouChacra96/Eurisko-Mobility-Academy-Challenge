@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import thunk from "redux-thunk";
 import moviereducer from './Reducers';
 import { createStore, compose, applyMiddleware,combineReducers} from "redux";
+import { Provider } from "react-redux";
 
 const composeEnhancers =
   (process.env.NODE_ENV === "development"
@@ -14,9 +15,12 @@ const composeEnhancers =
     : null) || compose;
 const store=createStore(combineReducers({movies:moviereducer}),composeEnhancers(applyMiddleware(thunk)));
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
+
   document.getElementById("root")
 );
 

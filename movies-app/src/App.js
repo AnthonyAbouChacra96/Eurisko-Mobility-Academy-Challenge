@@ -23,13 +23,39 @@ useEffect(() => {
     });
 }, []);
 const Home=(props)=>(<div><p>{props.name}</p></div>);
+	const state = {
+    action: {
+      spinn: false,
+    },
+    comedy: {
+      spinn: true,
+    },
+    crime: {
+      spinn: false,
+    },
+  };
   return (
     <div className="App">
       <Aux>
         <Navbar />
-				<Movies caption='Action' />
-				<Movies caption='Comedy' />
-				<Movies caption='Crime' />
+        {/* <Movies
+          caption="Action"
+          genreCaption="action"
+          genreId={28}
+          spinn={state.action.spinn}
+        /> */}
+        <Movies
+          caption="Comedy"
+          genreCaption="comedy"
+          genreId={35}
+          spinn={state.comedy.spinn}
+        />
+        <Movies
+          caption="Crime"
+          genreCaption="crime"
+          genreId={80}
+          spinn={state.crime.spinn}
+        />
       </Aux>
     </div>
   );
