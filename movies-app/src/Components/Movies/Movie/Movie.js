@@ -14,7 +14,9 @@ const Movie=(props)=>{
           className={[Classes.movieheader].join(" ")}
           style={{
             background:
-              'url("https://image.tmdb.org/t/p/w220_and_h330_face/sIdCKlmM2nU4akIvFQaAIiU8YES.jpg")',
+              'url("https://image.tmdb.org/t/p/w220_and_h330_face' +
+              props.movieData.poster_path +
+              '")',
             backgroundSize: "cover",
             backgroundRepeat: " no-repeat",
           }}
@@ -32,14 +34,14 @@ const Movie=(props)=>{
         <div className={Classes.movieContent}>
           <div className={Classes.movieContentHeader}>
             <a href="#">
-              <h3 className={Classes.movieTitle}>hawaiiii death blala</h3>
+              <h3 className={Classes.movieTitle}>{props.movieData.name}</h3>
             </a>
             {/* <div className={Classes.imaxLogo}></div> */}
           </div>
           <div className={Classes.movieInfo}>
             <div className={Classes.infoSection}>
-              <label>Date & Time</label>
-              <span>Sun 8 Sept - 10:00PM</span>
+              <label>Date </label>
+              <span>{props.movieData.first_air_date}</span>
             </div>
             <div className={Classes.infoSection}>
               <label>Screen</label>

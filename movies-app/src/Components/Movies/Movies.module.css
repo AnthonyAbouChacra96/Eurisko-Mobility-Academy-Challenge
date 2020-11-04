@@ -62,7 +62,7 @@ a:hover {
   background: #ffffff;
   box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 315px;
+  /* max-width: 315px; */
   margin: 10px;
   border-radius: 10px;
   display: inline-block;
@@ -72,7 +72,8 @@ a:hover {
   padding: 0;
   margin: 0;
   height: 367px;
-  width: 100%;
+	width: 100%;
+	min-width: 250px;
   display: block;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;

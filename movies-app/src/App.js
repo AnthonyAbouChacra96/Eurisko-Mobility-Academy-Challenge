@@ -38,12 +38,12 @@ const Home=(props)=>(<div><p>{props.name}</p></div>);
     <div className="App">
       <Aux>
         <Navbar />
-        {/* <Movies
+        <Movies
           caption="Action"
           genreCaption="action"
           genreId={28}
           spinn={state.action.spinn}
-        /> */}
+        />
         <Movies
           caption="Comedy"
           genreCaption="comedy"

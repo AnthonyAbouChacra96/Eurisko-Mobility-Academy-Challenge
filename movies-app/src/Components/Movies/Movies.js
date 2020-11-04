@@ -31,10 +31,12 @@ const Movies = (props) => {
     //   .catch((err) => {
     // 		console.log(err);
     // 		setstate({ ...state, spinn: false,error:true});
-		//   });
+    //   });
 
-	 props.onFetchAllMovies(props.genreId, props.genreCaption);
-	 console.log('props from useffect maovies',props);
+    if (props.categories[props.genreCaption].movies === null) {
+      props.onFetchAllMovies(props.genreId, props.genreCaption);
+    }
+    console.log("props from useffect maovies", props);
   }, []);
 
   const ModalCloseHandler = () => {
@@ -50,6 +52,26 @@ const Movies = (props) => {
       show: true,
     });
   };
+	console.log("props before render", props.categories[props.genreCaption]);
+	let i=0;
+  let movieslist =(props.categories[props.genreCaption].movies)? Object.keys(props.categories[props.genreCaption].movies).map(
+    (movie) => {
+			i++;
+      return (
+        <Movie
+          key={
+            props.categories[props.genreCaption].movies[movie].id +
+            props.caption +
+            i
+          }
+          genreCaption={props.genreCaption}
+          genreId={props.genreId}
+          clicked={ModalOpenHandler}
+          movieData={props.categories[props.genreCaption].movies[movie]}
+        />
+      );
+    }
+  ):null;
   return (
     <Aux>
       <div className={Classes.CathegoryCaption}>
@@ -58,22 +80,12 @@ const Movies = (props) => {
 
       {props.categories[props.genreCaption].error ? (
         <p>OOOOOps!!!{props.categories[props.genreCaption].error}</p>
-      ) : props.categories[props.genreCaption].spinn ? (
-        <Spinner />
+      ) : props.categories[props.genreCaption].spinn ? (<Spinner />
       ) : (
         <Aux>
           <Modal show={state.show} modalClosed={ModalCloseHandler} />
           <div className={Classes.container}>
-            <Movie clicked={ModalOpenHandler} />
-            <Movie />
-            <Movie />
-            <Movie />
-            <Movie />
-            <Movie />
-            <Movie />
-            <Movie />
-            <Movie />
-            <Movie />
+						{movieslist}
           </div>
         </Aux>
       )}
@@ -82,7 +94,7 @@ const Movies = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
-    categories:state.movies.category,
+    categories: state.movies.category,
   };
 };
 

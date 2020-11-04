@@ -89,7 +89,7 @@ const successFetchingMovies = (state, action) => {
   newState.category[action.genre].spinn = false;
   newState.category[action.genre].error = null;
   newState.category[action.genre].movies = action.movies.results;
-
+console.log("FROM REDUCER ON SUCCESS ", newState.category[action.genre].movies);
   return newState;
   // return updateObject(state, newState);
 };
