@@ -9,7 +9,10 @@ const Movie=(props)=>{
 	};
 	return (
     <Aux>
-      <div className={Classes.moviecard} onClick={props.clicked}>
+      <div
+        className={Classes.moviecard}
+        onClick={() => props.clicked(props.movieData.id)}
+      >
         <div
           className={[Classes.movieheader].join(" ")}
           style={{
@@ -33,7 +36,7 @@ const Movie=(props)=>{
         </div>
         <div className={Classes.movieContent}>
           <div className={Classes.movieContentHeader}>
-            <a href="#">
+            <a>
               <h3 className={Classes.movieTitle}>{props.movieData.name}</h3>
             </a>
             {/* <div className={Classes.imaxLogo}></div> */}
@@ -44,16 +47,18 @@ const Movie=(props)=>{
               <span>{props.movieData.first_air_date}</span>
             </div>
             <div className={Classes.infoSection}>
-              <label>Screen</label>
-              <span>03</span>
+              <label>Votes AVG</label>
+              <span>{props.movieData.vote_average}</span>
             </div>
             <div className={Classes.infoSection}>
-              <label>Row</label>
-              <span>F</span>
+              <label>Votes</label>
+              <span>{props.movieData.vote_count}</span>
             </div>
             <div className={Classes.infoSection}>
-              <label>Seat</label>
-              <span>21,22</span>
+              <table>
+                <label>popularity</label>
+                <span>{props.movieData.popularity}</span>
+              </table>
             </div>
           </div>
         </div>

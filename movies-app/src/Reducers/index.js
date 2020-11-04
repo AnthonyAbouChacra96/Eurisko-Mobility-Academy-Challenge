@@ -136,14 +136,15 @@ const startFetchingMovie = (state, action) => {
       },
     },
     clicked: {
-      ...state.clicked,
+			...state.clicked,
+			movieData: null,
     },
   };
 
   newState.clicked.id = action.movieId;
   newState.clicked.spinn = true;
   newState.clicked.error = null;
-  newState.clicked.movieData = null;
+  // newState.clicked.movieData = null;
 
   return newState;
 };
@@ -163,14 +164,16 @@ const successFetchingMovie = (state, action) => {
       },
     },
     clicked: {
-      ...state.clicked,
+			...state.clicked,
+			movieData: {...action.movieData}
     },
   };
 
   newState.clicked.id = action.movieId;
   newState.clicked.spinn = false;
   newState.clicked.error = null;
-  newState.clicked.movieData = action.movieData;
+	// newState.clicked.movieData = [...action.movieData];
+	console.log("FETCHING MOVIE SUCCESS", newState.clicked.movieData);
 
   return newState;
 };

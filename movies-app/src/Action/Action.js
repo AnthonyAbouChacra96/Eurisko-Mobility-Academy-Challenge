@@ -78,8 +78,11 @@ export const fetchMovie = (movieId) => {
         language: "en-US",
       })
       .then((response) => {
-        console.log(response.data);
-        dispatch(successFetchingMovie(movieId, response.data));
+				console.log("response Data:", response.data);
+				// setTimeout(() => {
+					        dispatch(successFetchingMovie(movieId, response.data));
+				// }, 1000);
+
       })
       .catch((error) => {
         console.log(error);

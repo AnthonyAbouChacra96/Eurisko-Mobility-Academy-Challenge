@@ -5,7 +5,7 @@ import Navbar from './Components/Navigation/Navbar/Navbar';
 import {React,useEffect} from 'react';
 import axios from 'axios';
 import Aux from './HOC/Auxiliary/Auxiliary';
-import {Route,Switch} from 'react-router-dom';
+import {BrowserRouter, Route,Switch} from 'react-router-dom';
 import Navitem from './Components/Navigation/NavItems/Navitem/Navitem';
 import Movies from './Components/Movies/Movies';
 
@@ -37,25 +37,27 @@ const Home=(props)=>(<div><p>{props.name}</p></div>);
   return (
     <div className="App">
       <Aux>
-        <Navbar />
-        <Movies
-          caption="Action"
-          genreCaption="action"
-          genreId={28}
-          spinn={state.action.spinn}
-        />
-        <Movies
-          caption="Comedy"
-          genreCaption="comedy"
-          genreId={35}
-          spinn={state.comedy.spinn}
-        />
-        <Movies
-          caption="Crime"
-          genreCaption="crime"
-          genreId={80}
-          spinn={state.crime.spinn}
-        />
+        <BrowserRouter>
+          <Navbar />
+          <Movies
+            caption="Action"
+            genreCaption="action"
+            genreId={28}
+            spinn={state.action.spinn}
+          />
+          <Movies
+            caption="Comedy"
+            genreCaption="comedy"
+            genreId={35}
+            spinn={state.comedy.spinn}
+          />
+          <Movies
+            caption="Crime"
+            genreCaption="crime"
+            genreId={80}
+            spinn={state.crime.spinn}
+          />
+        </BrowserRouter>
       </Aux>
     </div>
   );
